@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Minion Pro';
+  src: url('Minion Pro Regular.eot'); /* IE9 Compat Modes */
+  src: url('Minion Pro Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Minion Pro Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('Minion Pro Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('Minion Pro Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Minion Pro Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

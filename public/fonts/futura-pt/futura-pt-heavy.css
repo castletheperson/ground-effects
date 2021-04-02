@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Futura PT Heavy';
+  src: url('futura-pt-heavy.eot'); /* IE9 Compat Modes */
+  src: url('futura-pt-heavy.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('futura-pt-heavy.woff2') format('woff2'), /* Super Modern Browsers */
+       url('futura-pt-heavy.woff') format('woff'), /* Pretty Modern Browsers */
+       url('futura-pt-heavy.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('futura-pt-heavy.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

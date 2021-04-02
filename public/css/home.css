@@ -1,0 +1,100 @@
+.parallax-mirror {  z-index: 0 !important}img[src="images/image27.jpg"] {
+  filter: brightness(70%);
+}
+
+header nav.navbar {
+  margin-bottom: 10px;
+}
+
+header nav .navbar-brand {
+  display: none;
+}
+
+header nav ul:hover a:hover,
+header nav a,
+header nav a:hover {
+  text-shadow: #333 0px 0px 10px;
+}
+
+header {
+  height: 700px;
+  position: relative;
+}
+
+header nav ul:hover a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#image-gap {
+  height: 700px;
+}
+
+body > [data-parallax] {
+  max-height: 90vh;
+}
+
+.jumbotron {
+  background: none;
+  font-weight: normal;
+  color: white;
+  margin-top: 130px;
+  padding: 0 !important;
+  white-space: nowrap;
+  text-shadow: #333 5px 5px 10px;
+}
+
+.jumbotron h1 {
+  font-family: 'Didot', serif;
+  font-size: 120px;
+  text-transform: none;
+  font-weight: normal;
+}
+
+.jumbotron h1 .cap {
+  font-size: 1.5em;
+}
+
+.jumbotron h1 small {
+  text-align: right;
+  font-size: 0.833em;
+  font-family: 'Didot', serif;
+  color: white;
+  display: block;
+}
+
+.card {
+  padding: 70px 0;
+  background-color: #222;
+  font-family: 'Minion Pro', serif;
+}
+
+.card blockquote {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  padding: 0;
+  color: lightgray;
+  border: none;
+}
+
+.card blockquote p {
+  font-size: 32px;
+  margin-bottom: 10px;
+  line-height: 40px;
+}
+
+.card blockquote cite {
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.card blockquote p:before { content: '“'; }
+.card blockquote p:after  { content: '”'; }
+.card blockquote cite:before { content: '— '; }
+
+section#services img {
+  float: left;
+  margin-right: 10px;
+  margin-top: 18px;
+  width: 150px;
+}
