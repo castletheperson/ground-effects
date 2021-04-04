@@ -1,0 +1,4 @@
+{
+    "subject": "Contact Request - {{name}}",
+    "text": "Spam probability: {{score}}%\n\nForm details below.\n\nName: {{name}}\nEmail: {{emailFrom}}\nTelephone: {{phone}}\nDescription: {{description}}"
+}

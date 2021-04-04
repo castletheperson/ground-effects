@@ -1,0 +1,26 @@
+{
+  "name": "groundeffects",
+  "version": "1.0.0",
+  "description": "A website for a great landscaping company in Northwest Arkansas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castletheperson/ground-effects.git"
+  },
+  "author": "Castle Kerr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/castletheperson/ground-effects/issues"
+  },
+  "homepage": "https://github.com/castletheperson/ground-effects#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-rename": "^2.0.0",
+    "ts-node": "^9.1.1"
+  }
+}

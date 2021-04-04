@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="From small to large projects, we look forward to getting you what you want out of your yard. Our team will design a beautiful, useful space for your family." />
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" integrity="sha256-t2/7smZfgrST4FS1DT0bs/KotCM74XlcqZN5Vu7xlrw=" crossorigin="anonymous" type="text/css" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" type="text/css" />
+
+    <title>Error</title>
+
+    <style>body {background-color: #222;}</style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="alert alert-danger h3" role="alert">
+        <p>We are very sorry, but there were error(s) found with the form you submitted.</p>
+        <br />
+        <ul>
+          {{#each errors}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+        <br />
+        <p>Please go back and fix these errors.</p>
+      </div>
+    </div>
+  </body>
+</html>

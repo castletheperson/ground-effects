@@ -1,3 +1,6 @@
+# Precompiled files
+public/*.html
+
 # Logs
 logs
 *.log
