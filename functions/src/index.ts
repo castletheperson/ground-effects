@@ -38,8 +38,7 @@ const submitQuote: express.Handler = async (request, response, next) => {
   }
 
   await admin.firestore().collection("mail").add({
-    toUids: ["user2"],
-    ccUids: ["user3"],
+    toUids: ["quote_requests_to_user"],
     replyTo: email,
     template: {name: quoteRequestTemplateId, data},
   });

@@ -1,4 +1,0 @@
-{
-    "subject": "Contact Request - {{name}}",
-    "text": "Form details below.\n\nName: {{name}}\nEmail: {{email}}\nTelephone: {{phone}}\nDescription: {{description}}"
-}
