@@ -79,15 +79,11 @@
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- Firebase -->
     <script src="/__/firebase/8.3.1/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="/__/firebase/8.3.1/firebase-analytics.js"></script>
-
-    <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
+    <script>firebase.analytics();</script>
 
     {{#> scripts-block }}
         {{! Custom scripts per page can be added. }}
