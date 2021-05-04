@@ -1,0 +1,54 @@
+nav.navbar {
+  font-family: 'Abril Fatface', sans-serif;
+  margin-bottom: 100px;
+
+  .container {
+    margin-top: 20px;
+  }
+
+  .navbar-brand {
+    color: white;
+    padding-top: 5px;
+    font-weight: bold;
+    height: 3em;
+
+    img {
+      height: 7em;
+      display: inline-block;
+    }
+  }
+
+  ul {
+    a {
+      text-transform: uppercase;
+      background: none !important;
+      transition: color 0.2s;
+      color: white;
+      font-size: 14pt;
+    }
+
+    &:hover a:not(:hover) {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 767px) {
+  nav.navbar {
+    margin-bottom: 0;
+
+    .navbar-brand {
+      display: none;
+    }
+
+    .navbar-toggle {
+      border-color: white;
+
+      .icon-bar {
+        background-color: lightgray;
+      }
+    }
+  }
+}

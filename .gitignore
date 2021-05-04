@@ -1,5 +1,6 @@
 # Precompiled files
 static/*.html
+static/css
 
 # Logs
 logs

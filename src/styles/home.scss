@@ -1,0 +1,102 @@
+.parallax-mirror {
+  z-index: 0 !important;
+}
+
+img[src="images/image27.jpg"] {
+  filter: brightness(70%);
+}
+
+#image-gap {
+  height: 700px;
+}
+
+body > [data-parallax] {
+  max-height: 90vh;
+}
+
+section#services img {
+  float: left;
+  margin-right: 10px;
+  margin-top: 18px;
+  width: 150px;
+}
+
+header {
+  height: 700px;
+  position: relative;
+
+  nav {
+
+    &.navbar {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-shadow: #333 0px 0px 10px;
+    }
+
+    .navbar-brand {
+      display: none;
+    }
+  } 
+}
+
+.jumbotron {
+  background: none;
+  font-weight: normal;
+  color: white;
+  margin-top: 130px;
+  padding: 0 !important;
+  white-space: nowrap;
+  text-shadow: #333 5px 5px 10px;
+
+  h1 {
+    font-family: 'Didot', serif;
+    font-size: 120px;
+    text-transform: none;
+    font-weight: normal;
+
+    .cap {
+      font-size: 1.5em;
+    }
+
+    small {
+      text-align: right;
+      font-size: 0.833em;
+      font-family: 'Didot', serif;
+      color: white;
+      display: block;
+    }
+  }
+}
+
+.card {
+  padding: 70px 0;
+  background-color: #222;
+  font-family: 'Minion Pro', serif;
+
+  blockquote {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 0;
+    color: lightgray;
+    border: none;
+
+    p {
+      font-size: 32px;
+      margin-bottom: 10px;
+      line-height: 40px;
+
+      &:before { content: '“'; }
+      &:after  { content: '”'; }
+    }
+
+    cite {
+      text-transform: uppercase;
+      font-style: normal;
+      font-size: 14px;
+
+      &:before { content: '— '; }
+    }
+  }
+}
