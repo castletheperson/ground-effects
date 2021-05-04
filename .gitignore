@@ -1,5 +1,5 @@
 # Precompiled files
-public/*.html
+static/*.html
 
 # Logs
 logs

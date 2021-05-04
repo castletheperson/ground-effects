@@ -10,7 +10,7 @@
     "predeploy": [
       "gulp"
     ],
-    "public": "public",
+    "public": "static",
     "ignore": [
       "firebase.json",
       "**/.*",

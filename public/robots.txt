@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /PHPMailer/
-Disallow: /old/
-Disallow: /submit-quote.php
-
-Sitemap: https://nwageffects.com/sitemap.xml

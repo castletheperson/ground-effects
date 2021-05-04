@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/castletheperson/ground-effects#readme",
   "devDependencies": {
+    "@types/gulp": "^4.0.8",
+    "@types/gulp-rename": "^2.0.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-compile-handlebars": "^0.6.1",
