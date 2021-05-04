@@ -1,6 +1,8 @@
 # Precompiled files
 static/*.html
 static/css
+static/images/photoswipe
+static/js/parallax.min.js
 
 # Logs
 logs

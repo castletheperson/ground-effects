@@ -17,7 +17,9 @@
   {{#*inline "content" }}
     <section id="gallery">
       <div class="container">
-        <div class="masonry" id="gallery-images"></div>
+        <div class="masonry" id="gallery-images">
+          
+        </div>
       </div>
     </section>
 
@@ -65,7 +67,7 @@
     <script>
       $(function() {
         var $gallery = $('#gallery-images'),
-            $pswp = $('.pswp'),
+            pswpElement = $('.pswp').get(0),
             galleryImages = [
               { src: 'image27.jpg', w: 2016, h: 1512 },
               { src: 'image28.jpg', w: 1512, h: 2016 },
@@ -109,22 +111,20 @@
               { src: 'image21.jpg', w: 1280, h: 960 }
             ];
 
-        function display() {
-          var options = this;
-          new PhotoSwipe($pswp[0],
-                         PhotoSwipeUI_Default,
-                         galleryImages,
-                         options).init();
+        function display(index) {
+          var options = { index: index };
+          var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, galleryImages, options)
+          gallery.init();
         }
 
         galleryImages.forEach(function(img, index) {
           var src = img.src;
-          img.src = 'images/' + src;
+          img.src = 'images/gallery/' + src;
           img.msrc = 'images/thumbnails/tn_' + src;
 
           $('<img src="' + img.msrc + '" alt="Gallery Image" />')
             .appendTo($gallery)
-            .click(display.bind({ index: index }));
+            .click(function() { display(index) });
         });
 
       });

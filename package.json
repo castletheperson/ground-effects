@@ -20,6 +20,7 @@
     "@types/gulp": "^4.0.8",
     "@types/gulp-rename": "^2.0.0",
     "@types/gulp-sass": "^4.0.0",
+    "dotenv": "^8.2.0",
     "firebase-tools": "^9.10.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
@@ -30,6 +31,7 @@
     "ts-node": "^9.1.1"
   },
   "dependencies": {
+    "jquery-parallax.js": "^1.5.0",
     "photoswipe": "^4.1.3"
   }
 }
