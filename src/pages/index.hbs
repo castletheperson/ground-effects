@@ -81,24 +81,6 @@
 
   {{#*inline "scripts-block" }}
     <script src="js/parallax.min.js"></script>
-    <script>
-      $(function() {
-        function isOverflowing($el) {
-          return $el.prop('scrollWidth') > $el.width();
-        }
-
-        var $h1 = $('.jumbotron h1');
-        var maxFontSize = parseInt($h1.css('font-size'), 10);
-        $(window).resize(function() {
-          for (var fontSize = maxFontSize; fontSize > 0; fontSize -= 1) {
-            $h1.css('font-size', fontSize + 'px');
-            if (!isOverflowing($h1)) {
-              break;
-            }
-          }
-          //alert(fontSize);
-        }).resize();
-      });
-    </script>
+    <script src="js/index.js"></script>
   {{/inline}}
 {{/layouts/base}}

@@ -8,14 +8,11 @@
     width: 100%;
     margin: 20px 0;
     display: inline-block;
+    cursor: zoom-in;
     transition: box-shadow 0.2s;
 
     &:hover {
-      cursor: zoom-in;
-
-      section#gallery & {
-        box-shadow: #666 10px 10px 20px;
-      }
+      box-shadow: #666 10px 10px 20px;
     }
   }
 

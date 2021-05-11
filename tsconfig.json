@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "outDir": "static/js",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es3",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true
+  },
+  "typeRoots": [
+    "src/types",
+    "node_modules/@types",
+  ],
+  "files": [
+    "node_modules/@types/photoswipe/dist/photoswipe-ui-default/index.d.ts",
+    "src/types/gulp-compile-handlebars.d.ts"
+  ],
+  "compileOnSave": true,
+  "include": [
+    "src/scripts"
+  ],
+}

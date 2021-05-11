@@ -2,7 +2,7 @@
 static/*.html
 static/css
 static/images/photoswipe
-static/js/parallax.min.js
+static/js
 
 # Logs
 logs
