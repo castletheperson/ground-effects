@@ -1,13 +1,14 @@
 import {onRequest} from "firebase-functions/v2/https";
-// import {setGlobalOptions} from "firebase-functions/v2";
-import * as admin from "firebase-admin";
+import {setGlobalOptions} from "firebase-functions/v2";
+import {initializeApp} from "firebase-admin/app";
+import {getFirestore, Timestamp} from "firebase-admin/firestore";
 import * as express from "express";
 import {handlebars} from "consolidate";
 import {RecaptchaV3} from "express-recaptcha";
 import {RecaptchaResponseV3} from "express-recaptcha/dist/interfaces";
 import {body, validationResult, matchedData, Result} from "express-validator";
 import axios from "axios";
-import * as quoteRequestTemplate from "./quote_request_email_template.json";
+// import * as quoteRequestTemplate from "./quote_request_email_template.json";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -22,13 +23,20 @@ const recaptchaVerify: express.Handler = new RecaptchaV3(
     {action: "submit", checkremoteip: true}
 ).middleware.verify;
 
-// setGlobalOptions({ enforceAppCheck: true });
+setGlobalOptions({
+  region: "us-central1",
+  // enforceAppCheck: true,
+});
+
+initializeApp();
+const db = getFirestore();
 
 const quoteRequestTemplateId = "quote_request";
-admin.initializeApp();
-admin.firestore().collection("mail_templates")
-    .doc(quoteRequestTemplateId)
-    .set(quoteRequestTemplate);
+
+// Run this only one time to create the template
+// db.collection("mail_templates")
+//    .doc(quoteRequestTemplateId)
+//    .set(quoteRequestTemplate);
 
 type Data = {
   name: string,
@@ -49,7 +57,7 @@ const submitQuote: express.Handler = async (request, response, next) => {
 
   const {name, email, phone, description} = matchedData(request);
   const score = (request.recaptcha as RecaptchaResponseV3).data?.score ?? 0.0;
-  const timestamp = admin.firestore.Timestamp.now();
+  const timestamp = Timestamp.now();
   const data: Data = {name, email, phone, description, score, timestamp};
 
   // If the score indicates that the request is likely spam, don't email it
@@ -64,7 +72,7 @@ const submitQuote: express.Handler = async (request, response, next) => {
 };
 
 const sendEmail = async (data: Data): Promise<void> => {
-  await admin.firestore().collection("mail").add({
+  await db.collection("mail").add({
     toUids: ["quote_requests_to_user"],
     replyTo: data.email,
     template: {name: quoteRequestTemplateId, data},
@@ -72,14 +80,12 @@ const sendEmail = async (data: Data): Promise<void> => {
 };
 
 const saveToDatabase = async (data: Data): Promise<void> => {
-  await admin.firestore().collection("quote_requests").add(data);
+  await db.collection("quote_requests").add(data);
 };
 
 const saveToGoogleForm = async (data: Data): Promise<void> => {
-  const gForm = await admin.firestore()
-      .doc("google_forms/quote_request")
-      .get()
-      .then((doc) => doc.data());
+  const quoteRequestDoc = await db.doc("google_forms/quote_request").get();
+  const gForm = quoteRequestDoc.data();
 
   if (!gForm) {
     return;
@@ -130,4 +136,4 @@ app.use(((error: Result, _request, response, next) => {
   return response.status(500).render("error", {errors});
 }) as express.ErrorRequestHandler);
 
-export const submitQuoteV2 = onRequest(app);
+exports.submitQuoteV2 = onRequest(app);

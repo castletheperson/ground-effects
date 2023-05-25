@@ -18,7 +18,8 @@
     ],
     "rewrites": [{
       "source": "/submit-quote",
-      "function": "submitQuote"
+      "function": "submitQuoteV2",
+      "region": "us-central1"
     }],
     "cleanUrls": true,
     "trailingSlash": false

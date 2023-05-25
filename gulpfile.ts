@@ -1,6 +1,6 @@
 import { src, dest, series, parallel } from 'gulp';
 import del from 'del';
-import sass from 'gulp-sass';
+const sass = require('gulp-sass')(require('sass'));
 const handlebars = require('gulp-compile-handlebars');
 import run from 'gulp-run-command';
 import rename from 'gulp-rename';

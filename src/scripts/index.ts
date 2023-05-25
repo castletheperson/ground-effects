@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 $(() => {
     
     function* range(start: number, end: number, step = 1) {
