@@ -1,18 +1,28 @@
-import * as functions from "firebase-functions";
+import {onRequest} from "firebase-functions/v2/https";
+// import {setGlobalOptions} from "firebase-functions/v2";
 import * as admin from "firebase-admin";
 import * as express from "express";
-import * as engines from "consolidate";
-import * as recaptcha from "express-recaptcha";
+import {handlebars} from "consolidate";
+import {RecaptchaV3} from "express-recaptcha";
 import {RecaptchaResponseV3} from "express-recaptcha/dist/interfaces";
 import {body, validationResult, matchedData, Result} from "express-validator";
-import * as unirest from "unirest";
+import axios from "axios";
 import * as quoteRequestTemplate from "./quote_request_email_template.json";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-const recaptchaVerify: express.Handler = new recaptcha.RecaptchaV3(
-    functions.config().recaptchav3.sitekey,
-    functions.config().recaptchav3.secretkey,
+const siteKey = process.env.RECAPTCHAV3_SITEKEY;
+const secretKey = process.env.RECAPTCHAV3_SECRETKEY;
+if (!siteKey) throw new Error("RECAPTCHAV3_SITEKEY is not set");
+if (!secretKey) throw new Error("RECAPTCHAV3_SECRETKEY is not set");
+
+const recaptchaVerify: express.Handler = new RecaptchaV3(
+    siteKey,
+    secretKey,
     {action: "submit", checkremoteip: true}
 ).middleware.verify;
+
+// setGlobalOptions({ enforceAppCheck: true });
 
 const quoteRequestTemplateId = "quote_request";
 admin.initializeApp();
@@ -66,8 +76,7 @@ const saveToDatabase = async (data: Data): Promise<void> => {
 };
 
 const saveToGoogleForm = async (data: Data): Promise<void> => {
-  const gForm = await admin
-      .firestore()
+  const gForm = await admin.firestore()
       .doc("google_forms/quote_request")
       .get()
       .then((doc) => doc.data());
@@ -76,19 +85,20 @@ const saveToGoogleForm = async (data: Data): Promise<void> => {
     return;
   }
 
-  const url = `https://docs.google.com/forms/u/2/d/e/${gForm.id}/formResponse`;
-  await unirest("POST", url)
-      .form({
+  await axios.post(
+      `https://docs.google.com/forms/u/2/d/e/${gForm.id}/formResponse`,
+      new URLSearchParams({
         [gForm.fieldIds.name]: data.name,
         [gForm.fieldIds.email]: data.email,
         [gForm.fieldIds.phone]: data.phone,
         [gForm.fieldIds.description]: data.description,
-        [gForm.fieldIds.score]: data.score,
-      });
+        [gForm.fieldIds.score]: data.score.toString(),
+      }),
+  );
 };
 
 const app = express();
-app.engine("hbs", engines.handlebars);
+app.engine("hbs", handlebars);
 app.set("views", "./views");
 app.set("view engine", "hbs");
 app.use(express.urlencoded({extended: true}));
@@ -120,4 +130,4 @@ app.use(((error: Result, _request, response, next) => {
   return response.status(500).render("error", {errors});
 }) as express.ErrorRequestHandler);
 
-exports.submitQuote = functions.https.onRequest(app);
+export const submitQuoteV2 = onRequest(app);
