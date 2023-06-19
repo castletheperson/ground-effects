@@ -31,12 +31,8 @@ nav.navbar {
       color: rgba(255, 255, 255, 0.6);
     }
   }
-}
 
-
-
-@media screen and (max-width: 767px) {
-  nav.navbar {
+  @media screen and (max-width: 767px) {
     margin-bottom: 0;
 
     .navbar-brand {

@@ -67,13 +67,13 @@ a {
   font-family: 'Economica', sans-serif;
   font-size: 10pt;
   letter-spacing: 1.5px;
-  background: none;
+  background-color: transparent;
   border: 2px solid $brand-red;
   font-size: 14px;
   color: red;
   padding: 10px 30px;
   text-transform: uppercase;
-  transition: background 0.25s, color 0.25s;
+  transition: background-color 0.25s, color 0.25s;
   margin: 20px 0;
 
   &:hover {

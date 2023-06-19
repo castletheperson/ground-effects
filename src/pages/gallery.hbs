@@ -1,9 +1,9 @@
 {{#> layouts/base title="Project Gallery" }}
 
   {{#*inline "head-block" }}
-    <link rel="stylesheet" href="css/gallery.css" type="text/css" />
-    <link rel="stylesheet" href="images/photoswipe/photoswipe.css" type="text/css" />
-    <link rel="stylesheet" href="images/photoswipe/default-skin/default-skin.css" type="text/css" />
+    <link rel="stylesheet" href="css/gallery.css" type="text/css">
+    <link rel="stylesheet" href="images/photoswipe/photoswipe.css" type="text/css">
+    <link rel="stylesheet" href="images/photoswipe/default-skin/default-skin.css" type="text/css">
   {{/inline}}
 
   {{#*inline "heading" }}
@@ -11,11 +11,11 @@
       <h6>Project</h6>
       <h2>Gallery</h2>
     </div>
-    <br />
+    <br>
   {{/inline}}
   
   {{#*inline "content" }}
-    <section id="gallery" class="container">
+    <div id="gallery" class="container">
       <div class="masonry" id="gallery-images" itemscope itemtype="http://schema.org/ImageGallery">
         {{#*inline "image" }}
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -25,7 +25,7 @@
               data-msrc="images/thumbnails/tn_{{src}}"
               data-w="{{w}}"
               data-h="{{h}}">
-              <img src="images/thumbnails/tn_{{src}}" itemprop="thumbnail" alt="Gallery Image" />
+              <img src="images/thumbnails/tn_{{src}}" itemprop="thumbnail" alt="Gallery Image">
             </a>
           </figure>
         {{/inline}}
@@ -72,7 +72,7 @@
         {{> image src="image21.jpg" w=1280 h=960 }}
 
       </div>
-    </section>
+    </div>
 
     {{!-- PhotoSwipe HTML http://photoswipe.com/documentation/getting-started.html --}}
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
