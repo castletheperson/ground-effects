@@ -7,7 +7,7 @@ import rename from 'gulp-rename';
 import dotenv from 'dotenv';
 dotenv.config();
 
-export const clean = () => del([
+export const clean = async () => del([
     './static/*.html',
     './static/css',
     './static/images/photoswipe',
