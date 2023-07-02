@@ -17,6 +17,9 @@
     "node_modules/@types",
   ],
   "compileOnSave": true,
+  "files": [
+    "node_modules/@types/photoswipe/dist/photoswipe-ui-default/index.d.ts",
+  ],
   "include": [
     "src/scripts"
   ],

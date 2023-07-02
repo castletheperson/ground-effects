@@ -1,7 +1,3 @@
-import $ from 'jquery';
-import PhotoSwipe from 'photoswipe';
-import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
-
 $(() => {
     const pswp = $('.pswp')[0];
     const $galleryItems = $("#gallery-images a");
